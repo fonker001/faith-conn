@@ -1,15 +1,17 @@
-export function redirectByRole(role: string, router: any) {
-  switch (role) {
+import { useRouter } from 'next/router';
+import { SystemUser } from '@/types/types';
+
+export function redirectByRole(user: SystemUser | null): string {
+  if (!user) return '/login';
+  
+  switch (user.role) {  // Use user.role, not just "role"
     case "priest":
-      router.push("/priest/home");
-      break;
+      return "/priest/home";  // Return string, don't push directly
     case "leader":
-      router.push("/leaders/home");
-      break;
+      return "/leaders/home";
     case "catechist":
-      router.push("/catechist/home");
-      break;
+      return "/catechist/home";
     default:
-      router.push("/member/home");
+      return "/member/home";
   }
 }

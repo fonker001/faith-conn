@@ -106,7 +106,7 @@ interface Groupsdetail {
   outstation: number;
   outstation_name: string;
   created_at: string;
-  available_roles: any[];
+  available_roles: string[]; // Changed from any[]
 }
 
 interface Grouptype {
@@ -145,10 +145,11 @@ export interface SystemUser {
   phone_number: string;
   role: string;
   outstation_name: string;
+  [key: string]: string | number; // Changed from [key: string]: any
 }
 
 export interface SystemUsersResponse {
-  summary: any; // optional, if you don't need it
+  summary: Record<string, unknown>; // Changed from any
   total_users: number;
   users: SystemUser[];
 }
@@ -193,4 +194,11 @@ export interface Booking {
   updated_at: string;
   user: number;
   priest: number;
+}
+
+// For ApiResponse generic type
+export interface ApiResponse<T = Record<string, unknown>> {
+  data: T;
+  status: number;
+  message?: string;
 }
