@@ -106,7 +106,7 @@ export default function CatechismPage() {
   const [record, setRecord] = useState<CatechismRecord | null>(null);
   const [progress, setProgress] = useState<CatechismProgress | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error] = useState<string | null>(null);//removed seterror
+  const [error, setError] = useState<string | null>(null);
 
   const levels = useMemo(
     () => ["All", ...Array.from(new Set(MOCK_CLASSES.map((c) => c.level)))],

@@ -1,5 +1,6 @@
 import api from "@/lib/axiosClient";
-
+import { MemberProfile } from "@/types/types";
+import { useAuthStore } from "@/store/authStore";
 
 export async function getProfile() {
   const token = localStorage.getItem("accessToken");

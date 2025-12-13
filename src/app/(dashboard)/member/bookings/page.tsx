@@ -37,9 +37,6 @@ export default function BookingsPage() {
           other parish services.
         </p>
       </div>
-      <div>
-        {renderForm()}
-      </div>
 
       <BookingTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
