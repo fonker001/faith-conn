@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true, // Enable Next.js image optimization
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  // Add experimental edge runtime support
+  experimental: {
+    serverComponentsExternalPackages: [],
   },
 };
 
