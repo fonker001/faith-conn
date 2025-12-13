@@ -1,23 +1,22 @@
 // middleware.ts
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl;
-  const pathname = url.pathname;
+  const pathname = request.nextUrl.pathname;
 
-  // Public routes (anyone can access)
   const publicRoutes = ["/", "/login", "/sign_up", "/verify_otp"];
   const isPublic = publicRoutes.includes(pathname);
 
-  // If the route is public, just continue
   if (isPublic) {
     return NextResponse.next();
   }
 
-  // All other routes are protected client-side only
+  // Currently no server-side blocking — allowed
   return NextResponse.next();
 }
 
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  runtime: "edge",
 };
