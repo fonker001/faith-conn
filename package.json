@@ -2,10 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pmpm@9.15.4",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "NEXT_DISABLE_TURBOPACK=1 next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -27,7 +26,7 @@
     "embla-carousel-react": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.546.0",
-    "next": "15.4.4",
+    "next": "16.0.0",
     "next-themes": "^0.4.6",
     "react": "19.2.0",
     "react-calendar": "^6.0.0",
