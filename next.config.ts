@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    turbopack: false,
+  },
   images: {
     unoptimized: true, // Enable Next.js image optimization
     remotePatterns: [
