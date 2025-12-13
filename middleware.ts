@@ -1,4 +1,3 @@
-// middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -6,13 +5,11 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   const publicRoutes = ["/", "/login", "/sign_up", "/verify_otp"];
-  const isPublic = publicRoutes.includes(pathname);
 
-  if (isPublic) {
+  if (publicRoutes.includes(pathname)) {
     return NextResponse.next();
   }
 
-  // Currently no server-side blocking — allowed
   return NextResponse.next();
 }
 
